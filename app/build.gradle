@@ -13,8 +13,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Sets up parameters for both JNI build and CMake.
+        // For a complete list of parameters, see
+        // https://developer.android.com/ndk/guides/cmake.html#variables
         externalNativeBuild {
             cmake {
+                // cppFlags are configured according to your selection of "Customize C++ Support",
+                // in the project creation wizard
                 cppFlags ''
             }
         }
@@ -30,10 +35,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    // Specifies the location of ``CMakeLists.txt`, relative to the hosting directory of this
+    // `build.gradle` file
     externalNativeBuild {
         cmake {
             path file('src/main/cpp/CMakeLists.txt')
+            // This version should match the project version defined in the
+            // `cmake_minimum_required()` command in `CMakeLists.txt`.
             version '3.18.1'
+
         }
     }
     buildFeatures {
