@@ -30,3 +30,5 @@ The following are notes that I took while reading through the official Android d
 1. Java/Kotlin code loads the native library using `System.loadLibrary(libraryName)`.
     - Pass the library name as a string. For example, `System.loadLibrary("native-lib")`.
 2. Java/Kotlin can call any native function as a normal Java/Kotlin function. See JNI rules.
+
+### NOTE: Need to read again https://developer.android.com/studio/projects/configure-cmake#add-other-library
